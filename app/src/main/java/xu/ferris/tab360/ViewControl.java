@@ -64,7 +64,7 @@ public class ViewControl implements IViewAnimation, View.OnClickListener {
             bottombarShowOrHide(false);
             iv_home.setVisibility(View.GONE);
             mTabsview.scaleHome(iv_home);
-            isHome=false;
+
         }
     }
 
@@ -77,7 +77,7 @@ public class ViewControl implements IViewAnimation, View.OnClickListener {
             titlebarShowOrHide(true);
             bottombarShowOrHide(true);
             mTabsview.scaleHomeBack(iv_home);
-            isHome=true;
+
         }
     }
 

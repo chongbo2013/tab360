@@ -48,11 +48,14 @@ public class TabContaint extends FrameLayout{
      * @param drawable
      */
     public void scaleHome(final ImageView iv_home) {
-        iv_home.clearAnimation();
+
         Drawable drawable=iv_home.getDrawable();
         int position=mTabsViewpage.getCurrentItem();
-        ImageView dstImageVIew= (ImageView) mTabsViewpage.getChildAt(position);
+        final ImageView dstImageVIew= (ImageView) mTabsViewpage.getChildAt(position);
+
         dstImageVIew.clearAnimation();
+        iv_home.clearAnimation();
+
         int[] location=new int[2];
         dstImageVIew.getLocationOnScreen(location);
 
@@ -77,7 +80,10 @@ public class TabContaint extends FrameLayout{
 
             @Override
             public void onAnimationEnd(Animation animation) {
+
                 iv_home.setVisibility(View.GONE);
+                ViewControl.isHome=false;
+
             }
 
             @Override
@@ -89,12 +95,12 @@ public class TabContaint extends FrameLayout{
     }
 
     public void scaleHomeBack(final ImageView iv_home) {
-        iv_home.clearAnimation();
-        int position=mTabsViewpage.getCurrentItem();
-        ImageView dstImageVIew= (ImageView) mTabsViewpage.getChildAt(position);
 
+        int position=mTabsViewpage.getCurrentItem();
+        final  ImageView dstImageVIew= (ImageView) mTabsViewpage.getChildAt(position);
 
         dstImageVIew.clearAnimation();
+        iv_home.clearAnimation();
 
         Drawable drawable=dstImageVIew.getDrawable();
         iv_home.setImageDrawable(drawable);
@@ -125,7 +131,7 @@ public class TabContaint extends FrameLayout{
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
+                ViewControl.isHome=true;
             }
 
             @Override
